@@ -32,17 +32,19 @@ if __name__ == "__main__":
     s1 /= 125
     s2 /= 125
 
-    diff = int(100*(min(s2,s1)/max(s2,s1)))
+    per1 = int(100*(s1/(s1+s2)))
+    per2 = 100 - per1
 
-    print(f'{100}{draw_line(4,3,222)}')
-
-    for i in range(99, 0,-1):
-        if i > diff:
+    for i in range(100,0,-1):
+        if i > per1:
+            print(i)
+        if i <= per1 and i > per2:
             print(f'{i}{draw_line(5,3,222)}')
-        elif i > 9:
+        if i <= per1 and i <= per2:
+            if i <= 9:
+                print(f'{i}{draw_line(6,3,222)}{draw_line(4,3,222)}')
+                continue
             print(f'{i}{draw_line(5,3,222)}{draw_line(4,3,222)}')
-        else:
-            print(f'{i}{draw_line(6,3,222)}{draw_line(4,3,222)}')
 
     print(f'{' '*7}s1{5*' '}s2')
 

@@ -7,6 +7,10 @@ CLEAR = "\033[H"
 ifsquare = []
 
 
+def move_cursor_left(n):
+    print(f'\033[{n}D', end='')
+
+
 def draw_line(offset=0, length=1, color=222):
     line = " " * length
     return f"{' ' * offset}{SET_COLOR}{color}m{line}{END}"
@@ -27,6 +31,7 @@ if __name__ == "__main__":
     print('  ', end='')
     for i in range(169): 
         if i in ifsquare: 
+            if i//10>0: move_cursor_left(1)
             print(i, end='')
         else:
             print(' ', end='')
