@@ -23,6 +23,5 @@ def draw_sign(n):
 
 
 if __name__ == "__main__":
-    n = int(input())
-    draw_sign(n)
+    draw_sign(6)
     
